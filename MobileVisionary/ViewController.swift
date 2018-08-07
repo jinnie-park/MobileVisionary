@@ -11,8 +11,9 @@ import ARKit
 import Vision
 
 class ViewController: UIViewController {
-    
+    @IBOutlet weak var resultView: ResultView!
     @IBOutlet weak var sceneKitView: ARSCNView!
+    @IBOutlet weak var resultTextField: UITextField!
     //Let's hack.
     
     var scannedFaceViews = [UIView]()
@@ -34,13 +35,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //dropAnchor()
+        resultView.isHidden = true
+        googleVisionManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
-        scanTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
     }
     
     
@@ -85,19 +88,20 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
-                    if faces.count > 0 {
+                    
                         self.googleVisionManager.uploadImage(image: image)
-                        for face in faces {
-                            let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
-                            
-                            faceView.backgroundColor = .red
-                            
-                            self.sceneKitView.addSubview(faceView)
-                            
-                            self.scannedFaceViews.append(faceView)
-                        }
                     }
-                }
+//                        for face in faces {
+//                            let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
+//
+//                            faceView.backgroundColor = .red
+//
+//                            self.sceneKitView.addSubview(faceView)
+//
+//                            self.scannedFaceViews.append(faceView)
+//                        }
+                    
+                
             }
         }
         
@@ -113,6 +117,20 @@ class ViewController: UIViewController {
         let size = CGSize(width: boundingBox.width * sceneKitView.bounds.width, height: boundingBox.height * sceneKitView.bounds.height)
         
         return CGRect(origin: origin, size: size)
+    }
+    
+    
+}
+
+extension ViewController: GoogleVisionManagerDelegate{
+    func textResponseDidComeBack(text: String) {
+        DispatchQueue.main.async {
+            self.resultView.isHidden = false
+            self.resultTextField.insertText(text)
+        }
+        
+        scanTimer?.invalidate()
+        
     }
     
     
