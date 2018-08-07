@@ -98,6 +98,8 @@ class GoogleVisionManager: NSObject {
             }
             print(JSON(data: data))
             //call the parser
+            let test = JSONParser()
+            print (test.analyzeResults(data))
         }
         
         task.resume()
