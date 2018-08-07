@@ -13,6 +13,7 @@ import Vision
 class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
+    @IBOutlet weak var debugImage: UIImageView!
     //Let's hack.
     
     var scannedFaceViews = [UIView]()
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
-        scanTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
     }
     
     
@@ -85,11 +86,10 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
+                    self.googleVisionManager.uploadImage(image: image, imageView: self.debugImage)
                     if faces.count > 0 {
-                        self.googleVisionManager.uploadImage(image: image)
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
-                            
                             faceView.backgroundColor = .red
                             
                             self.sceneKitView.addSubview(faceView)

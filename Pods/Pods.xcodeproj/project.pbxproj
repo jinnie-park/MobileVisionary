@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,8 +53,8 @@
 		1C979524CCEF7F7CEA135DDFE927EB50 /* Pods-MobileVisionaryUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MobileVisionaryUITests-dummy.m"; sourceTree = "<group>"; };
 		1EA1592504541D889B53FE7046FC1AFD /* Pods-MobileVisionaryTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MobileVisionaryTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2176704787BB7B6A7520C962B5E29C12 /* Pods-MobileVisionary-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MobileVisionary-acknowledgements.plist"; sourceTree = "<group>"; };
-		28BA6C8950276AA8973A7BBAB5D2BFF1 /* Pods_MobileVisionaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MobileVisionaryUITests.framework; path = "Pods-MobileVisionaryUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		33215296AF7E454D92B0AC41FC385AD2 /* Pods_MobileVisionaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MobileVisionaryTests.framework; path = "Pods-MobileVisionaryTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28BA6C8950276AA8973A7BBAB5D2BFF1 /* Pods_MobileVisionaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33215296AF7E454D92B0AC41FC385AD2 /* Pods_MobileVisionaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4181A7923FE1C01B2294D67D378B0FF8 /* Pods-MobileVisionaryUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MobileVisionaryUITests-umbrella.h"; sourceTree = "<group>"; };
 		4660948F01C661D4E3C97BA05E44A4BC /* Pods-MobileVisionaryUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MobileVisionaryUITests.modulemap"; sourceTree = "<group>"; };
 		519F97488515DDE14F549C4A2F8CC247 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
@@ -64,15 +64,15 @@
 		7E3921D1DAD51A3DE5CBACADBAEAD730 /* Pods-MobileVisionary-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MobileVisionary-resources.sh"; sourceTree = "<group>"; };
 		83B82F63FAD4271C84265BEC3F20EEFF /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		9074E747572782901CBD2F5722B0CD11 /* Pods-MobileVisionaryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MobileVisionaryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94ADD09E4904883AC24C2DAB00DF331E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94ADD09E4904883AC24C2DAB00DF331E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A313D47ABA5F576A97968611E89FD6F4 /* Pods-MobileVisionary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MobileVisionary-umbrella.h"; sourceTree = "<group>"; };
 		A6EBDB81560D3F75074499AD371BA952 /* Pods-MobileVisionary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MobileVisionary-dummy.m"; sourceTree = "<group>"; };
 		A8EE652C97FFF35F92870F3BA256B263 /* Pods-MobileVisionaryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MobileVisionaryTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB1D8BE296D25D9E948D2C43A3438063 /* Pods-MobileVisionaryUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MobileVisionaryUITests-resources.sh"; sourceTree = "<group>"; };
 		ADC583D18D471EC78B07DE5FD632A86E /* Pods-MobileVisionaryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MobileVisionaryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B5285A4E0D5023BA0A72B47C99485E35 /* Pods-MobileVisionary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MobileVisionary.modulemap"; sourceTree = "<group>"; };
-		B9833E4354634B553F2E4CAB27842702 /* Pods_MobileVisionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MobileVisionary.framework; path = "Pods-MobileVisionary.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9833E4354634B553F2E4CAB27842702 /* Pods_MobileVisionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE506ECE97701EBA44FDBFF401C1A04 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		C46113401D8CF6D23B62F495E46372F1 /* Pods-MobileVisionaryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MobileVisionaryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D201BEFA76E0996691F0A09F5ED25F5D /* Pods-MobileVisionaryTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MobileVisionaryTests.modulemap"; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 				BDE506ECE97701EBA44FDBFF401C1A04 /* SwiftyJSON.swift */,
 				A82FB0ABA1BB1D08F4FA0D68E7D324CB /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -378,7 +377,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -476,11 +475,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionary/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionary/Pods-MobileVisionary.modulemap";
 				OTHER_LDFLAGS = "";
@@ -579,11 +574,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionaryUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionaryUITests/Pods-MobileVisionaryUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -617,11 +608,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionaryUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionaryUITests/Pods-MobileVisionaryUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -656,11 +643,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionary/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionary/Pods-MobileVisionary.modulemap";
 				OTHER_LDFLAGS = "";
@@ -695,11 +678,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -732,11 +711,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyJSON;
 				PRODUCT_NAME = SwiftyJSON;
@@ -769,11 +744,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionaryTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionaryTests/Pods-MobileVisionaryTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -843,6 +814,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -865,11 +837,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-MobileVisionaryTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-MobileVisionaryTests/Pods-MobileVisionaryTests.modulemap";
 				OTHER_LDFLAGS = "";
