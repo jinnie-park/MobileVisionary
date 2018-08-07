@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     var scannedFaceViews = [UIView]()
     var scanTimer: Timer?
+    let googleVisionManager = GoogleVisionManager()
     
     private var imageOrientation: CGImagePropertyOrientation {
         switch UIDevice.current.orientation {
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dropAnchor()
+        //dropAnchor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,14 +85,17 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
-                    for face in faces {
-                        let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
-                        
-                        faceView.backgroundColor = .red
-                        
-                        self.sceneKitView.addSubview(faceView)
-                        
-                        self.scannedFaceViews.append(faceView)
+                    if faces.count > 0 {
+                        self.googleVisionManager.uploadImage(image: image)
+                        for face in faces {
+                            let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
+                            
+                            faceView.backgroundColor = .red
+                            
+                            self.sceneKitView.addSubview(faceView)
+                            
+                            self.scannedFaceViews.append(faceView)
+                        }
                     }
                 }
             }
