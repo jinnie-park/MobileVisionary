@@ -9,9 +9,9 @@ import Foundation
 import SwiftyJSON
 
 
-class JsonParser : NSObject {
+class JSONParser : NSObject {
     
-    func analyzeResults(_ dataToParse: Data) {
+    func analyzeResults(_ dataToParse: Data) -> [String : String] {
         
         // Update UI on the main thread
         // DispatchQueue.main.async(execute: {
@@ -35,6 +35,8 @@ class JsonParser : NSObject {
             // print(json)
             let responses: JSON = json["responses"][0]
             
+            var faceResults : [String:String] = [:]
+            
             // Get face annotations
             let faceAnnotations: JSON = responses["faceAnnotations"]
             if faceAnnotations != JSON.null {
@@ -42,7 +44,7 @@ class JsonParser : NSObject {
                 
                 let numPeopleDetected:Int = faceAnnotations.count
                 
-                //                self.faceResults.text = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
+                faceResults["text"] = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
                 
                 var emotionTotals: [String: Double] = ["sorrow": 0, "joy": 0, "surprise": 0, "anger": 0]
                 var emotionLikelihoods: [String: Double] = ["VERY_LIKELY": 0.9, "LIKELY": 0.75, "POSSIBLE": 0.5, "UNLIKELY":0.25, "VERY_UNLIKELY": 0.0]
@@ -61,12 +63,12 @@ class JsonParser : NSObject {
                 for (emotion, total) in emotionTotals {
                     let likelihood:Double = total / Double(numPeopleDetected)
                     let percent: Int = Int(round(likelihood * 100))
-                    //                    self.faceResults.text! += "\(emotion): \(percent)%\n"
+                    faceResults["text"]! += "\(emotion): \(percent)%\n"
                 }
             } else {
-                //                self.faceResults.text = "No faces found"
+                faceResults["text"] = "No faces found"
             }
-            //print(faceResults)
+            return (faceResults)
             //                // Get label annotations
             //                let labelAnnotations: JSON = responses["labelAnnotations"]
             //                let numLabels: Int = labelAnnotations.count
