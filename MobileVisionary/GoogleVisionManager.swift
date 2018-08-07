@@ -31,11 +31,10 @@ class GoogleVisionManager: NSObject {
     }
     
     private func base64EncodeImage(_ image: UIImage) -> String {
-        var imagedata = UIImagePNGRepresentation(image)
         let oldSize: CGSize = image.size
         let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
-        imagedata = resizeImage(newSize, image: image)
-        return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
+        let imagedata = resizeImage(newSize, image: image)
+        return imagedata.base64EncodedString(options: .endLineWithCarriageReturn)
     }
     
     private func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
