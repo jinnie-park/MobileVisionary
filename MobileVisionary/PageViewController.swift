@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 protocol PageVCDelegate {
     func pageVCDidChange(scanType: ScanType)
@@ -19,7 +20,7 @@ enum ScanType{
     case text
 }
 
-class PageVC: UIViewController, UIScrollViewDelegate {
+class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!// = UIScrollView(frame: CGRect(x:0, y:0, width:320,height: 300))
     @IBOutlet weak var pageControl : UIPageControl!// = UIPageControl(frame: CGRect(x:50,y: 300, width:200, height:50))
@@ -27,6 +28,7 @@ class PageVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var faceView: UIView!
     var frame: CGRect = CGRect(x:0, y:0, width:0, height:0)
     var delegate: PageVCDelegate?
+    var textToShare: String? = "string that you want to copy"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +103,29 @@ class PageVC: UIViewController, UIScrollViewDelegate {
     
     @IBAction func reScanButtonClicked(){
         delegate?.pageVCDidRequestRescan()
+    }
+    
+    @IBAction func copyButtonClicked(_ sender: Any) {
+        UIPasteboard.general.string = textToShare
+    }
+    
+    @IBAction func sendButtonClicked(_ sender: Any) {
+        sendEmail()
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            //mail.setToRecipients(["you@yoursite.com"])
+            mail.setMessageBody(textToShare!, isHTML: true)
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
 }

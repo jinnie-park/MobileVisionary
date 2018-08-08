@@ -120,6 +120,47 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="380" id="vdQ-Y4-uH8"/>
                                         </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textresult" rowHeight="221" id="m6G-l0-xsp" customClass="TextResultCell" customModule="MobileVisionary" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="230" height="221"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6G-l0-xsp" id="W8V-mX-HFW" customClass="textResultCell" customModule="MobileVisionary" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="230" height="221"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Something" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7m-TM-KyA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="230" height="116"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRB-g9-RbC">
+                                                            <rect key="frame" x="60" y="186" width="36" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Copy"/>
+                                                            <connections>
+                                                                <action selector="copyButtonClicked:" destination="yq0-DS-42W" eventType="touchUpInside" id="2o2-Xo-Smr"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRU-c0-zwS">
+                                                            <rect key="frame" x="119" y="186" width="36" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Send"/>
+                                                            <connections>
+                                                                <action selector="sendButtonClicked:" destination="yq0-DS-42W" eventType="touchUpInside" id="VQP-qO-zRz"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.71085836150000004" green="1" blue="0.99353980639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <connections>
+                                                    <outlet property="copyButton" destination="pRB-g9-RbC" id="AP1-AB-eI4"/>
+                                                    <outlet property="textResult" destination="H7m-TM-KyA" id="XHl-Ah-bc7"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xX7-Hn-tKa">
                                         <rect key="frame" x="10" y="428" width="220" height="30"/>
