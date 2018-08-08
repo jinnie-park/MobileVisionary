@@ -21,7 +21,8 @@ class GoogleVisionManager: NSObject {
     }
     
     private func CIImageToBase64(_ image: CIImage) -> String {
-        let uiImage = UIImage.init(ciImage: image)
+        let orientation = UIImageOrientation(rawValue: UIImageOrientation.right.rawValue)!
+        let uiImage = UIImage.init(ciImage: image, scale: 1, orientation: orientation)
         return base64EncodeImage(uiImage)
     }
     
@@ -36,7 +37,7 @@ class GoogleVisionManager: NSObject {
         UIGraphicsBeginImageContext(imageSize)
         image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        let resizedImage = UIImagePNGRepresentation(newImage!)
+        let resizedImage = UIImageJPEGRepresentation(newImage!, 0.5)
         UIGraphicsEndImageContext()
         return resizedImage!
     }
@@ -47,10 +48,8 @@ class GoogleVisionManager: NSObject {
         
     }
     
-    
     private func createRequest(_ imageBase64: String) {
         // Create our request URL
-        
         var request = URLRequest(url: googleURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -65,6 +64,10 @@ class GoogleVisionManager: NSObject {
                 "features": [
                     [
                         "type": "LABEL_DETECTION",
+                        "maxResults": 10
+                    ],
+                    [
+                        "type": "TEXT_DETECTION",
                         "maxResults": 10
                     ],
                     [
@@ -102,5 +105,21 @@ class GoogleVisionManager: NSObject {
         }
         
         task.resume()
+    }
+}
+
+public enum ImageFormat {
+    case png
+    case jpeg(CGFloat)
+}
+
+extension UIImage {
+    public func base64(format: ImageFormat) -> String? {
+        var imageData: Data?
+        switch format {
+        case .png: imageData = UIImagePNGRepresentation(self)
+        case .jpeg(let compression): imageData = UIImageJPEGRepresentation(self, compression)
+        }
+        return imageData?.base64EncodedString()
     }
 }
