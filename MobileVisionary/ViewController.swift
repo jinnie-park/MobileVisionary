@@ -13,7 +13,6 @@ import Vision
 class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
-    @IBOutlet weak var debugImage: UIImageView!
     //Let's hack.
     
     var scannedFaceViews = [UIView]()
@@ -86,7 +85,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
-                    self.googleVisionManager.uploadImage(image: image, imageView: self.debugImage)
+                    self.googleVisionManager.uploadImage(image: image)
                     if faces.count > 0 {
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))

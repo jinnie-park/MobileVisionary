@@ -21,27 +21,21 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cna-o5-PLf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wam-F4-Nk2">
-                                <rect key="frame" x="30" y="337" width="315" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="5rC-vb-B2O"/>
-                                </constraints>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kmU-xu-oM1">
+                                <rect key="frame" x="67" y="519" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cna-o5-PLf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7tD-8g-1BB"/>
                             <constraint firstItem="cna-o5-PLf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UAC-Ex-ybc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wam-F4-Nk2" secondAttribute="trailing" constant="30" id="UcN-Tc-Jif"/>
-                            <constraint firstItem="wam-F4-Nk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="XOb-5B-V0d"/>
                             <constraint firstItem="cna-o5-PLf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qBt-hR-7jo"/>
                             <constraint firstItem="cna-o5-PLf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qa4-zp-x32"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wam-F4-Nk2" secondAttribute="bottom" constant="30" id="z3I-KX-1tN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="debugImage" destination="wam-F4-Nk2" id="hmR-9H-aPN"/>
                         <outlet property="sceneKitView" destination="cna-o5-PLf" id="d2X-zC-YZQ"/>
                     </connections>
                 </viewController>

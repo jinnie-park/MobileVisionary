@@ -17,7 +17,6 @@ class GoogleVisionManager: NSObject {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
     var session = URLSession.shared
-    var imageView: UIImageView!
     
     override init(){
     }
@@ -39,14 +38,12 @@ class GoogleVisionManager: NSObject {
         UIGraphicsBeginImageContext(imageSize)
         image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        imageView.image = newImage
         let resizedImage = UIImageJPEGRepresentation(newImage!, 0.5)
         UIGraphicsEndImageContext()
         return resizedImage!
     }
     
-    func uploadImage(image: CIImage, imageView: UIImageView) {
-        self.imageView = imageView
+    func uploadImage(image: CIImage) {
         let base64 = CIImageToBase64(image)
         createRequest(base64)
         
