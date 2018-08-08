@@ -14,9 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
+    var scanType: ScanType = .text
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
-    
-    
     var scannedFaceViews = [UIView]()
     var scanTimer: Timer?
     let googleVisionManager = GoogleVisionManager()
@@ -50,7 +49,7 @@ class ViewController: UIViewController {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
-        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scan), userInfo: nil, repeats: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,6 +83,15 @@ class ViewController: UIViewController {
         // Set the scene to sceneKitView
         sceneKitView.scene = scene
         
+    }
+    
+    @objc
+    private func scan() {
+        if self.scanType == .face{
+            scanForFaces()
+        } else {
+            scanForText()
+        }
     }
     
     @objc
@@ -122,6 +130,21 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc
+    private func scanForText() {
+        //remove the test views and empty the array that was keeping a reference to them
+        _ = scannedFaceViews.map { $0.removeFromSuperview() }
+        scannedFaceViews.removeAll()
+        
+        guard let capturedImage = sceneKitView.session.currentFrame?.capturedImage else { return }
+        
+        let image = CIImage.init(cvPixelBuffer: capturedImage)
+        
+        DispatchQueue.main.async {
+                self.googleVisionManager.uploadImage(image: image)
+        }
+    }
+    
     private func faceFrame(from boundingBox: CGRect) -> CGRect {
         
         //translate camera frame to frame inside the ARSKView
@@ -136,6 +159,7 @@ class ViewController: UIViewController {
 
 extension ViewController: PageVCDelegate{
     func pageVCDidChange(scanType: ScanType) {
+        self.scanType = scanType
         print(scanType)
     }
 }

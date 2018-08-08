@@ -68,6 +68,10 @@ class GoogleVisionManager: NSObject {
                         "maxResults": 10
                     ],
                     [
+                        "type": "TEXT_DETECTION",
+                        "maxResults": 10
+                    ],
+                    [
                         "type": "FACE_DETECTION",
                         "maxResults": 10
                     ]
