@@ -11,6 +11,7 @@ import UIKit
 
 protocol PageVCDelegate {
     func pageVCDidChange(scanType: ScanType)
+    func pageVCDidRequestRescan()
 }
 
 enum ScanType{
@@ -43,7 +44,7 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         frame.origin.x = 10
         let width = self.scrollView.frame.width - 20
         frame.size.width = width
-        frame.size.height = 113//500 - 37//self.scrollView.frame.height
+        frame.size.height = 43
         textView.frame = frame
         textView.layer.cornerRadius = 10
         textView.layer.masksToBounds = true
@@ -52,8 +53,6 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         faceView.frame = frame
         faceView.layer.cornerRadius = 10
         faceView.layer.masksToBounds = true
-//        let heightConstraint = NSLayoutConstraint(item: textView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: -37)
-//        NSLayoutConstraint.activate([heightConstraint])
         
         scrollView.addSubview(textView)
         scrollView.addSubview(faceView)
@@ -91,12 +90,17 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         delegate?.pageVCDidChange(scanType: type)
     }
     
-    func extendPage(){
-        UIView.animate(withDuration: 1) {
+    func extendPage(toHigh: Bool){
+        let height: CGFloat = toHigh ? 463 : 43
+        UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
-            self.textView.frame.size.height = 500 - 37
-            self.faceView.frame.size.height = 500 - 37
+            self.textView.frame.size.height = height
+            self.faceView.frame.size.height = height
         }
+    }
+    
+    @IBAction func reScanButtonClicked(){
+        delegate?.pageVCDidRequestRescan()
     }
     
 }
