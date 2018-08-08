@@ -10,7 +10,7 @@ import UIKit
 import ARKit
 import Vision
 
-class ViewController: UIViewController {
+class GoogleVisionViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
@@ -34,9 +34,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //dropAnchor()
-        let test = JSONParser()
-        let data = Data()
-        test.analyzeResults(<#T##dataToParse: Data##Data#>)
     }
     
     override func viewWillAppear(_ animated: Bool) {

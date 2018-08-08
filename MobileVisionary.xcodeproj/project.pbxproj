@@ -19,6 +19,7 @@
 		87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */; };
 		9A89E15E2119EF000060E44C /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89E15D2119EF000060E44C /* JSONParser.swift */; };
 		B9B6F1BC5717211A54619B71 /* Pods_MobileVisionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */; };
+		F3899319211B418900E501AE /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3899318211B418900E501AE /* ImagePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		92428111B302D259094FC468 /* Pods_MobileVisionaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A89E15D2119EF000060E44C /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3899318211B418900E501AE /* ImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerViewController.swift; path = JsonParser/ImagePickerViewController.swift; sourceTree = SOURCE_ROOT; };
 		FEC761AF7B4C2D0084B349AD /* Pods_MobileVisionaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				87A518FE2118CA9E00FD1590 /* AppDelegate.swift */,
 				87A519002118CA9E00FD1590 /* ViewController.swift */,
 				87A519022118CA9E00FD1590 /* Main.storyboard */,
+				F3899318211B418900E501AE /* ImagePickerViewController.swift */,
 				87A519052118CAA000FD1590 /* Assets.xcassets */,
 				87A519072118CAA000FD1590 /* LaunchScreen.storyboard */,
 				87A5190A2118CAA000FD1590 /* Info.plist */,
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */,
+				F3899319211B418900E501AE /* ImagePickerViewController.swift in Sources */,
 				87A519012118CA9E00FD1590 /* ViewController.swift in Sources */,
 				9A89E15E2119EF000060E44C /* JSONParser.swift in Sources */,
 				87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */,
