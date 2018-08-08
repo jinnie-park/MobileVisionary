@@ -1,13 +1,13 @@
 //
 //  JsonParser.swift
-//
+//  MobileVisionary
 //
 //  Created by Ashley Koo on 8/7/18.
+//  Copyright © 2018 All rights reserved.
 //
 
 import Foundation
 import SwiftyJSON
-
 
 class JSONParser : NSObject {
     
@@ -15,7 +15,6 @@ class JSONParser : NSObject {
         
         // Update UI on the main thread
         // DispatchQueue.main.async(execute: {
-        
         
         // Use SwiftyJSON to parse results
         let json = JSON(data: dataToParse)
