@@ -43,13 +43,22 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         frame.origin.x = 10
         let width = self.scrollView.frame.width - 20
         frame.size.width = width
-        frame.size.height = 500 - 37//self.scrollView.frame.height
+        frame.size.height = 113//500 - 37//self.scrollView.frame.height
         textView.frame = frame
+        textView.layer.cornerRadius = 10
+        textView.layer.masksToBounds = true
         
         frame.origin.x = self.scrollView.frame.size.width + 10
         faceView.frame = frame
+        faceView.layer.cornerRadius = 10
+        faceView.layer.masksToBounds = true
+//        let heightConstraint = NSLayoutConstraint(item: textView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: -37)
+//        NSLayoutConstraint.activate([heightConstraint])
+        
         scrollView.addSubview(textView)
         scrollView.addSubview(faceView)
+        
+        
         
         //frame.origin.x = self.scrollView.frame.size.width + 10
         self.scrollView.contentSize = CGSize(width:self.scrollView.frame.size.width * 2,height: self.scrollView.frame.size.height)
@@ -58,7 +67,7 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         delegate?.pageVCDidChange(scanType: .text)
     }
     
-    func configurePageControl() {
+    private func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
         self.pageControl.numberOfPages = 2
         self.pageControl.currentPage = 0
@@ -70,7 +79,7 @@ class PageVC: UIViewController, UIScrollViewDelegate {
     }
     
     // MARK : TO CHANGE WHILE CLICKING ON PAGE CONTROL
-    @objc func changePage(sender: AnyObject) -> () {
+    @objc private func changePage(sender: AnyObject) -> () {
         let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x:x, y:0), animated: true)
     }
@@ -80,6 +89,14 @@ class PageVC: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = pageNumber
         let type = pageNumber == 0 ? ScanType.text : ScanType.face
         delegate?.pageVCDidChange(scanType: type)
+    }
+    
+    func extendPage(){
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+            self.textView.frame.size.height = 500 - 37
+            self.faceView.frame.size.height = 500 - 37
+        }
     }
     
 }

@@ -38,8 +38,9 @@ class ViewController: UIViewController {
         self.heightLayout.constant = 500
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
-            self.pageVC.view.layoutIfNeeded()
+            //self.pageVC.view.layoutIfNeeded()
         }
+        pageVC.extendPage()
     }
 
     override func viewDidLoad() {
