@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
-
+    var scanType: ScanType = .text
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
     var scannedFaceViews = [UIView]()
     var scanTimer: Timer?
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
-        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scan), userInfo: nil, repeats: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,8 +85,9 @@ class ViewController: UIViewController {
         
     }
     
+    @objc
     private func scan() {
-        if scanType == "face"{
+        if self.scanType == .face{
             scanForFaces()
         } else {
             scanForText()
@@ -158,6 +159,7 @@ class ViewController: UIViewController {
 
 extension ViewController: PageVCDelegate{
     func pageVCDidChange(scanType: ScanType) {
+        self.scanType = scanType
         print(scanType)
     }
 }
