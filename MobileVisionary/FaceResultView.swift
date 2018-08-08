@@ -14,6 +14,8 @@ class FaceResultView: UIView {
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
+        let labelNib = UINib(nibName: "LabelResultCell", bundle: nil)
+        tableView.register(labelNib, forCellReuseIdentifier: "labelresult")
     }
 }
 
@@ -39,7 +41,13 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.section == 0{
+            return UITableViewCell()
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult") as! LabelResultCell
+            cell.displayPercentage(percent: 0.5)
+            return cell
+        }
     }
 }
 
