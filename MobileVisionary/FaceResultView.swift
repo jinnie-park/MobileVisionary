@@ -14,6 +14,8 @@ class FaceResultView: UIView {
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
+        let labelNib = UINib(nibName: "LabelResultCell", bundle: nil)
+        tableView.register(labelNib, forCellReuseIdentifier: "labelresult")
     }
 }
 
@@ -39,7 +41,14 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "faceResult", for: indexPath) as! FaceResultCell
+            cell.setEmotionField(emotion: "anger")
+            cell.setScaleField(scale: "likely")
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
 }
 
