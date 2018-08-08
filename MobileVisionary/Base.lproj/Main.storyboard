@@ -85,6 +85,7 @@
                             <constraint firstItem="kRq-hX-iHT" firstAttribute="top" secondItem="e5H-rD-lBM" secondAttribute="bottom" id="WGL-xL-cHt"/>
                             <constraint firstItem="kRq-hX-iHT" firstAttribute="bottom" secondItem="wjb-WM-iv1" secondAttribute="bottomMargin" id="fyK-Al-XVL"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Roj-9h-PdB"/>
                     </view>
                     <connections>
                         <outlet property="faceView" destination="vOW-xY-WDo" id="T7a-au-HmJ"/>
@@ -105,7 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCW-U6-SJI">
-                                        <rect key="frame" x="8" y="99" width="42" height="21"/>
+                                        <rect key="frame" x="8" y="5" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="dLk-q0-N51"/>
                                             <constraint firstAttribute="width" constant="42" id="rPe-s2-Tmo"/>
@@ -116,14 +117,15 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="VCW-U6-SJI" secondAttribute="bottom" constant="8" id="HhE-cw-UF2"/>
                                     <constraint firstItem="VCW-U6-SJI" firstAttribute="leading" secondItem="hSL-ag-bfY" secondAttribute="leading" constant="8" id="RtT-O0-euf"/>
+                                    <constraint firstItem="VCW-U6-SJI" firstAttribute="top" secondItem="hSL-ag-bfY" secondAttribute="top" constant="5" id="bNZ-I2-uCe"/>
                                 </constraints>
                             </view>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <blurEffect style="light"/>
                         </visualEffectView>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="1" alpha="0.3046875" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="jTU-ke-kBd" firstAttribute="top" secondItem="EdS-5I-Aot" secondAttribute="top" id="QGg-hp-5gu"/>
                         <constraint firstItem="jTU-ke-kBd" firstAttribute="trailing" secondItem="EdS-5I-Aot" secondAttribute="trailing" id="VAe-4g-JVJ"/>
@@ -143,7 +145,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTA-mg-ZTb">
-                                        <rect key="frame" x="8" y="99" width="42" height="21"/>
+                                        <rect key="frame" x="8" y="5" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" id="5KK-kV-8e0"/>
                                             <constraint firstAttribute="height" constant="21" id="Tbv-Is-BHp"/>
@@ -155,9 +157,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jTA-mg-ZTb" firstAttribute="leading" secondItem="KK0-Cb-SN1" secondAttribute="leading" constant="8" id="XFp-0d-KFu"/>
-                                    <constraint firstAttribute="bottom" secondItem="jTA-mg-ZTb" secondAttribute="bottom" constant="8" id="sgf-Iu-BnG"/>
+                                    <constraint firstItem="jTA-mg-ZTb" firstAttribute="top" secondItem="KK0-Cb-SN1" secondAttribute="top" constant="5" id="eyl-QA-cUT"/>
                                 </constraints>
                             </view>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <blurEffect style="light"/>
                         </visualEffectView>
                     </subviews>
