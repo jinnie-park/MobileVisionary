@@ -14,9 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
+
     @IBOutlet weak var heightLayout: NSLayoutConstraint!
-    
-    
     var scannedFaceViews = [UIView]()
     var scanTimer: Timer?
     let googleVisionManager = GoogleVisionManager()
@@ -86,6 +85,14 @@ class ViewController: UIViewController {
         
     }
     
+    private func scan() {
+        if scanType == "face"{
+            scanForFaces()
+        } else {
+            scanForText()
+        }
+    }
+    
     @objc
     private func scanForFaces() {
         
@@ -119,6 +126,21 @@ class ViewController: UIViewController {
         
         DispatchQueue.global().async {
             try? VNImageRequestHandler(ciImage: image, orientation: self.imageOrientation).perform([detectFaceRequest])
+        }
+    }
+    
+    @objc
+    private func scanForText() {
+        //remove the test views and empty the array that was keeping a reference to them
+        _ = scannedFaceViews.map { $0.removeFromSuperview() }
+        scannedFaceViews.removeAll()
+        
+        guard let capturedImage = sceneKitView.session.currentFrame?.capturedImage else { return }
+        
+        let image = CIImage.init(cvPixelBuffer: capturedImage)
+        
+        DispatchQueue.main.async {
+                self.googleVisionManager.uploadImage(image: image)
         }
     }
     

@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileVisionary/GoogleVisionManager.swift"
-            timestampString = "555348353.761349"
+            timestampString = "555428293.112695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "runRequestOnBackgroundThread(_:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "base64(format:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileVisionary/GoogleVisionManager.swift"
-            timestampString = "555348353.761748"
+            timestampString = "555428293.114121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "createRequest(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,12 +42,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MobileVisionary/GoogleVisionManager.swift"
-            timestampString = "555348353.762008"
+            timestampString = "555428293.1151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "base64(format:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileVisionary/GoogleVisionManager.swift"
+            timestampString = "555428293.1160001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "runRequestOnBackgroundThread(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MobileVisionary/GoogleVisionManager.swift"
+            timestampString = "555428293.1168979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "base64(format:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
