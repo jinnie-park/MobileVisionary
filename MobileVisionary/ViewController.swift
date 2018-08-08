@@ -14,10 +14,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
+    @IBOutlet weak var heightLayout: NSLayoutConstraint!
+    
     
     var scannedFaceViews = [UIView]()
     var scanTimer: Timer?
     let googleVisionManager = GoogleVisionManager()
+    var pageVC: PageVC!
     
     private var imageOrientation: CGImagePropertyOrientation {
         switch UIDevice.current.orientation {
@@ -30,10 +33,17 @@ class ViewController: UIViewController {
         case .landscapeLeft: return .up
         }
     }
+    
+    @IBAction func changeFrame(){
+        self.heightLayout.constant = 500
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+            self.pageVC.view.layoutIfNeeded()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //dropAnchor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +51,13 @@ class ViewController: UIViewController {
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
         scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pagecontrol"{
+            self.pageVC = segue.destination as! PageVC
+            self.pageVC.delegate = self
+        }
     }
     
     
@@ -85,8 +102,8 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
-                    self.googleVisionManager.uploadImage(image: image)
                     if faces.count > 0 {
+                        self.googleVisionManager.uploadImage(image: image)
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
                             faceView.backgroundColor = .red
@@ -115,5 +132,11 @@ class ViewController: UIViewController {
     }
     
     
+}
+
+extension ViewController: PageVCDelegate{
+    func pageVCDidChange(scanType: ScanType) {
+        print(scanType)
+    }
 }
 
