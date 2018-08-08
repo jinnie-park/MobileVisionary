@@ -21,6 +21,7 @@
 		87A5191F2118CAA000FD1590 /* MobileVisionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5191E2118CAA000FD1590 /* MobileVisionaryUITests.swift */; };
 		87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */; };
 		B9B6F1BC5717211A54619B71 /* Pods_MobileVisionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */; };
+		F389931B211B73DB00E501AE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389931A211B73DB00E501AE /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionManager.swift; sourceTree = "<group>"; };
 		92428111B302D259094FC468 /* Pods_MobileVisionaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F389931A211B73DB00E501AE /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		FEC761AF7B4C2D0084B349AD /* Pods_MobileVisionaryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				5D0BB25D211B22F900E0154E /* PageViewController.swift */,
 				5D0BB261211B567F00E0154E /* TextResultView.swift */,
 				5D0BB263211B568F00E0154E /* FaceResultView.swift */,
+				F389931A211B73DB00E501AE /* JSONParser.swift */,
 				87A519022118CA9E00FD1590 /* Main.storyboard */,
 				87A519052118CAA000FD1590 /* Assets.xcassets */,
 				87A519072118CAA000FD1590 /* LaunchScreen.storyboard */,
@@ -389,6 +392,7 @@
 			files = (
 				5D0BB264211B568F00E0154E /* FaceResultView.swift in Sources */,
 				5D0BB262211B567F00E0154E /* TextResultView.swift in Sources */,
+				F389931B211B73DB00E501AE /* JSONParser.swift in Sources */,
 				87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */,
 				87A519012118CA9E00FD1590 /* ViewController.swift in Sources */,
 				87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */,
@@ -567,13 +571,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XBTBLK336;
+				DEVELOPMENT_TEAM = 8JZX3HMJTM;
 				INFOPLIST_FILE = MobileVisionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = appian.MobileVisionary.bowen;
+				PRODUCT_BUNDLE_IDENTIFIER = appian.MobileVisionary.Ashley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -586,13 +590,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XBTBLK336;
+				DEVELOPMENT_TEAM = 8JZX3HMJTM;
 				INFOPLIST_FILE = MobileVisionary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = appian.MobileVisionary.bowen;
+				PRODUCT_BUNDLE_IDENTIFIER = appian.MobileVisionary.Ashley;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

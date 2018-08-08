@@ -9,6 +9,9 @@
 import UIKit
 import SwiftyJSON
 
+protocol GoogleVisionManagerDelegate {
+    func managerDidReceiveValidData(manager: GoogleVisionManager, data: ([String : String], [String : Any], [String : String]))
+}
 
 class GoogleVisionManager: NSObject {
     
@@ -17,6 +20,8 @@ class GoogleVisionManager: NSObject {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
     var session = URLSession.shared
+    var scanType: ScanType = .text
+    var delegate: GoogleVisionManagerDelegate?
     
     override init(){
     }
@@ -43,10 +48,10 @@ class GoogleVisionManager: NSObject {
         return resizedImage!
     }
     
-    func uploadImage(image: CIImage) {
+    func uploadImage(image: CIImage, scantype: ScanType) {
+        self.scanType = scantype
         let base64 = CIImageToBase64(image)
         createRequest(base64)
-        
     }
     
     private func createRequest(_ imageBase64: String) {
@@ -93,7 +98,6 @@ class GoogleVisionManager: NSObject {
     
     private func runRequestOnBackgroundThread(_ request: URLRequest) {
         // run the request
-        
         let task: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "")
@@ -101,8 +105,20 @@ class GoogleVisionManager: NSObject {
             }
             print(JSON(data: data))
             //call the parser
+
+            let test = JSONParser()
+            let parseData = test.analyzeResults(data) // make it constant
+            print (type(of: test.analyzeResults(data)))
+            if self.scanType == .text {
+                if test.hasTextData() {
+                    self.delegate?.managerDidReceiveValidData(manager: self, data: parseData)
+                } // else wait for next scan
+            } else if self.scanType == .face {
+                if test.hasFaceData() {
+                    self.delegate?.managerDidReceiveValidData(manager: self, data: parseData)
+                } // else wait for next scan
+            }
         }
-        
         task.resume()
     }
 }

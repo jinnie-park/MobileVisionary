@@ -9,9 +9,10 @@
 import UIKit
 import ARKit
 import Vision
+import SwiftyJSON
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var sceneKitView: ARSCNView!
     //Let's hack.
     var scanType: ScanType = .text
@@ -35,14 +36,17 @@ class ViewController: UIViewController {
     
     @IBAction func changeFrame(){
         self.heightLayout.constant = 500
-        UIView.animate(withDuration: 1) {
-            self.view.layoutIfNeeded()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1) {
+                self.view.layoutIfNeeded()
+            }
+            self.pageVC.extendPage(toHigh: true)
         }
-        pageVC.extendPage(toHigh: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.googleVisionManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,8 +119,7 @@ class ViewController: UIViewController {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
                     if faces.count > 0 {
-                        self.scanTimer?.invalidate() //needs to be moved to manager delegate after valid data is parsed.
-                        self.googleVisionManager.uploadImage(image: image)
+                        self.googleVisionManager.uploadImage(image: image, scantype: self.scanType)
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
                             faceView.backgroundColor = .red
@@ -129,9 +132,11 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+        print ("Arrived line 133")
         DispatchQueue.global().async {
+            print ("line 135")
             try? VNImageRequestHandler(ciImage: image, orientation: self.imageOrientation).perform([detectFaceRequest])
+            print ("line 137")
         }
     }
     
@@ -142,12 +147,9 @@ class ViewController: UIViewController {
         scannedFaceViews.removeAll()
         
         guard let capturedImage = sceneKitView.session.currentFrame?.capturedImage else { return }
-        
         let image = CIImage.init(cvPixelBuffer: capturedImage)
+        self.googleVisionManager.uploadImage(image: image, scantype: self.scanType)
         
-        DispatchQueue.main.async {
-                self.googleVisionManager.uploadImage(image: image)
-        }
     }
     
     private func faceFrame(from boundingBox: CGRect) -> CGRect {
@@ -177,3 +179,11 @@ extension ViewController: PageVCDelegate{
     }
 }
 
+extension ViewController: GoogleVisionManagerDelegate{
+    func managerDidReceiveValidData(manager: GoogleVisionManager, data: ([String : String], [String : Any], [String : String])) {
+        changeFrame() // if data successfully called, will automatically expand
+        scanTimer?.invalidate()
+    }
+    
+    
+}
