@@ -39,7 +39,15 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "faceResult", for: indexPath) as! FaceResultCell
+            cell.setEmotionField(emotion: "anger")
+            cell.setScaleField(scale: "likely")
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+      
     }
 }
 
