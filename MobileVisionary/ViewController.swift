@@ -37,9 +37,8 @@ class ViewController: UIViewController {
         self.heightLayout.constant = 500
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
-            //self.pageVC.view.layoutIfNeeded()
         }
-        pageVC.extendPage()
+        pageVC.extendPage(toHigh: true)
     }
 
     override func viewDidLoad() {
@@ -50,6 +49,10 @@ class ViewController: UIViewController {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
+        startTimer()
+    }
+    
+    func startTimer(){
         scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.scan), userInfo: nil, repeats: true)
     }
     
@@ -112,6 +115,7 @@ class ViewController: UIViewController {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
                     if faces.count > 0 {
+                        self.scanTimer?.invalidate() //needs to be moved to manager delegate after valid data is parsed.
                         self.googleVisionManager.uploadImage(image: image)
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
@@ -159,9 +163,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: PageVCDelegate{
+    func pageVCDidRequestRescan() {
+        self.heightLayout.constant = 80
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
+        pageVC.extendPage(toHigh: false)
+        startTimer()
+    }
+    
     func pageVCDidChange(scanType: ScanType) {
         self.scanType = scanType
-        print(scanType)
     }
 }
 
