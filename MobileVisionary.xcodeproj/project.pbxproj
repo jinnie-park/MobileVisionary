@@ -10,6 +10,8 @@
 		5D0BB25E211B22F900E0154E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB25D211B22F900E0154E /* PageViewController.swift */; };
 		5D0BB262211B567F00E0154E /* TextResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB261211B567F00E0154E /* TextResultView.swift */; };
 		5D0BB264211B568F00E0154E /* FaceResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB263211B568F00E0154E /* FaceResultView.swift */; };
+		5D0BB266211B674900E0154E /* LabelResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0BB265211B674900E0154E /* LabelResultCell.xib */; };
+		5D0BB268211B682900E0154E /* LabelResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB267211B682900E0154E /* LabelResultCell.swift */; };
 		8412DE5A127B05FC21819F2E /* Pods_MobileVisionaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92428111B302D259094FC468 /* Pods_MobileVisionaryUITests.framework */; };
 		855C8A58ED064596E1F634BF /* Pods_MobileVisionaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC761AF7B4C2D0084B349AD /* Pods_MobileVisionaryTests.framework */; };
 		87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A518FE2118CA9E00FD1590 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		5D0BB25D211B22F900E0154E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		5D0BB261211B567F00E0154E /* TextResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResultView.swift; sourceTree = "<group>"; };
 		5D0BB263211B568F00E0154E /* FaceResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceResultView.swift; sourceTree = "<group>"; };
+		5D0BB265211B674900E0154E /* LabelResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelResultCell.xib; sourceTree = "<group>"; };
+		5D0BB267211B682900E0154E /* LabelResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelResultCell.swift; sourceTree = "<group>"; };
 		70F035971E6215FB5E00ACF3 /* Pods-MobileVisionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVisionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVisionary/Pods-MobileVisionary.release.xcconfig"; sourceTree = "<group>"; };
 		87A518FB2118CA9D00FD1590 /* MobileVisionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVisionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A518FE2118CA9E00FD1590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 				5D0BB25D211B22F900E0154E /* PageViewController.swift */,
 				5D0BB261211B567F00E0154E /* TextResultView.swift */,
 				5D0BB263211B568F00E0154E /* FaceResultView.swift */,
+				5D0BB267211B682900E0154E /* LabelResultCell.swift */,
 				87A519022118CA9E00FD1590 /* Main.storyboard */,
+				5D0BB265211B674900E0154E /* LabelResultCell.xib */,
 				87A519052118CAA000FD1590 /* Assets.xcassets */,
 				87A519072118CAA000FD1590 /* LaunchScreen.storyboard */,
 				87A5190A2118CAA000FD1590 /* Info.plist */,
@@ -288,6 +294,7 @@
 				87A519092118CAA000FD1590 /* LaunchScreen.storyboard in Resources */,
 				87A519062118CAA000FD1590 /* Assets.xcassets in Resources */,
 				87A519042118CA9E00FD1590 /* Main.storyboard in Resources */,
+				5D0BB266211B674900E0154E /* LabelResultCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +400,7 @@
 				87A519012118CA9E00FD1590 /* ViewController.swift in Sources */,
 				87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */,
 				5D0BB25E211B22F900E0154E /* PageViewController.swift in Sources */,
+				5D0BB268211B682900E0154E /* LabelResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
