@@ -11,6 +11,13 @@ import UIKit
 class FaceResultView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
+    var data: ([String : String], [String : Any], [String : String])?{
+        didSet{
+            //refresh ui to display
+            tableView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self

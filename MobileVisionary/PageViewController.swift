@@ -24,11 +24,17 @@ class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControlle
     
     @IBOutlet weak var scrollView: UIScrollView!// = UIScrollView(frame: CGRect(x:0, y:0, width:320,height: 300))
     @IBOutlet weak var pageControl : UIPageControl!// = UIPageControl(frame: CGRect(x:50,y: 300, width:200, height:50))
-    @IBOutlet weak var textView: UIView!
-    @IBOutlet weak var faceView: UIView!
+    @IBOutlet weak var textView: TextResultView!
+    @IBOutlet weak var faceView: FaceResultView!
     var frame: CGRect = CGRect(x:0, y:0, width:0, height:0)
     var delegate: PageVCDelegate?
     var textToShare: String? = "string that you want to copy"
+    var data: ([String : String], [String : Any], [String : String])?{
+        didSet{
+            textView.data = self.data
+            faceView.data = self.data
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +112,7 @@ class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControlle
     }
     
     @IBAction func copyButtonClicked(_ sender: Any) {
-        UIPasteboard.general.string = textToShare
+        UIPasteboard.general.string = self.data?.2["text"]
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
@@ -118,7 +124,7 @@ class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControlle
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             //mail.setToRecipients(["you@yoursite.com"])
-            mail.setMessageBody(textToShare!, isHTML: true)
+            mail.setMessageBody((self.data?.2["text"])!, isHTML: true)
             present(mail, animated: true)
         } else {
             // show failure alert

@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class TextResultView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
+    var data: ([String : String], [String : Any], [String : String])?{
+        didSet{
+            //refresh ui to display
+            tableView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -34,14 +42,36 @@ extension TextResultView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if(section == 0) {
+            return 1
+        } else {
+        var numOfRows = 0
+        if let unwrappedData = self.data {
+            let label : [Dictionary<String, Any>] = unwrappedData.1["results"] as! [Dictionary<String, Any>]
+            numOfRows = label.count
+        }
+        print("number of rows \(numOfRows)")
+        return numOfRows
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            return tableView.dequeueReusableCell(withIdentifier: "textresult", for: indexPath) as! TextResultCell
-        }else{
-            return tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+        var text = ""
+        var labels = [Dictionary<String, Any>]()
+        if let unwrappedData = self.data {
+            labels = unwrappedData.1["results"] as! [Dictionary<String, Any>]
+            text = unwrappedData.2["text"]!
         }
+        
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textResult", for: indexPath) as! TextResultCell
+            cell.setTextResult(text: text)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+            cell.displayPercentage(percent: Float(labels[indexPath.row]["confidence"] as! Double))
+            return cell
+        }
+        
     }
 }
