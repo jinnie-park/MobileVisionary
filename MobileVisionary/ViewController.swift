@@ -206,6 +206,7 @@ extension ViewController: GoogleVisionManagerDelegate{
             changeFrame()
         }
         scanTimer?.invalidate()
+        pageVC.data = data
     }
     
     
