@@ -81,6 +81,7 @@ extension TextResultView: UITableViewDelegate, UITableViewDataSource{
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+            cell.displayLabelName(name: labels[indexPath.row]["label"] as! String)
             cell.displayPercentage(percent: Float(labels[indexPath.row]["confidence"] as! Double))
             return cell
         }

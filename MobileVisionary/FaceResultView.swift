@@ -51,18 +51,41 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if(section == 0) {
+            return 4
+        } else {
+            var numOfRows = 0
+            if let unwrappedData = self.data {
+                let label : [Dictionary<String, Any>] = unwrappedData.1["results"] as! [Dictionary<String, Any>]
+                numOfRows = label.count
+            }
+            print("number of rows \(numOfRows)")
+            return numOfRows
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var labels = [Dictionary<String, Any>]()
+        if let unwrappedData = self.data {
+            labels = unwrappedData.1["results"] as! [Dictionary<String, Any>]
+        }
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "faceResult", for: indexPath) as! FaceResultCell
-            cell.setEmotionField(emotion: "anger")
-            cell.setScaleField(scale: "likely")
+            var emotions = [Substring]()
+            if let unwrappedData = self.data {
+                let emotionsData = unwrappedData.0["text"] as! String
+                emotions = emotionsData.split(separator: "\n")
+//                print("--------------" + emotionsData)
+                var emotion = emotions[indexPath.row].split(separator: ":")
+                cell.setEmotionField(emotion: String(emotion[0]))
+                cell.setScaleField(scale: String(emotion[1]))
+
+            }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult") as! LabelResultCell
-            cell.displayPercentage(percent: 0.9)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+            cell.displayLabelName(name: labels[indexPath.row]["label"] as! String)
+            cell.displayPercentage(percent: Float(labels[indexPath.row]["confidence"] as! Double))
             return cell
         }
     }
