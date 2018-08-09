@@ -30,12 +30,15 @@ class LabelResultCell: UITableViewCell {
     }
     
     func displayPercentage(percent: Float){
-        if let constraint = self.percentConstraint{
-            _ = constraint.changeMultiplier(multiplier: CGFloat(percent))
-            UIView.animate(withDuration: 10) {
-                self.layoutIfNeeded()
+        DispatchQueue.main.async {
+            if let constraint = self.percentConstraint{
+                _ = constraint.changeMultiplier(multiplier: CGFloat(percent))
+                UIView.animate(withDuration: 10) {
+                    self.layoutIfNeeded()
+                }
             }
         }
+        
         
         
         let text = String(Int(percent * 100)) + "%    "

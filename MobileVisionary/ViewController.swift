@@ -10,6 +10,7 @@ import UIKit
 import ARKit
 import Vision
 import SwiftyJSON
+import MessageUI
 
 class ViewController: UIViewController {
 
@@ -34,14 +35,12 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func changeFrame(){
+    func changeFrame(){
         self.heightLayout.constant = 500
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 1) {
-                self.view.layoutIfNeeded()
-            }
-            self.pageVC.extendPage(toHigh: true)
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
         }
+        self.pageVC.extendPage(toHigh: true)
     }
 
     override func viewDidLoad() {
@@ -161,24 +160,51 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: PageVCDelegate{
+extension ViewController: PageVCDelegate, MFMailComposeViewControllerDelegate{
+    func requestToSendEmail(data: String) {
+        sendEmail()
+    }
+    
     func pageVCDidRequestRescan() {
-        self.heightLayout.constant = 80
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
+        DispatchQueue.main.async {
+            self.heightLayout.constant = 80
+            UIView.animate(withDuration: 0.2) {
+                self.view.layoutIfNeeded()
+            }
+            self.pageVC.extendPage(toHigh: false)
         }
-        pageVC.extendPage(toHigh: false)
         startTimer()
     }
     
     func pageVCDidChange(scanType: ScanType) {
         self.scanType = scanType
     }
+    
+    
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            //mail.setToRecipients(["you@yoursite.com"])
+            mail.setMessageBody("wahoowa", isHTML: true)
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: false)
+        pageVCDidRequestRescan()
+    }
+
 }
 
 extension ViewController: GoogleVisionManagerDelegate{
     func managerDidReceiveValidData(manager: GoogleVisionManager, data: ([String : String], [String : Any], [String : String])) {
-        changeFrame() // if data successfully called, will automatically expand
+        DispatchQueue.main.sync {
+            changeFrame()
+        }
         scanTimer?.invalidate()
         pageVC.data = data
     }
