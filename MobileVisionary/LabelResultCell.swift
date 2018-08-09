@@ -20,6 +20,7 @@ class LabelResultCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         percentConstraint.constant = 0.01
+        selectionStyle = .none
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +38,7 @@ class LabelResultCell: UITableViewCell {
         }
         
         
-        let text = String(Int(percent * 100)) + " % "
+        let text = String(Int(percent * 100)) + "%    "
         percentLabel.text = text
     }
 
