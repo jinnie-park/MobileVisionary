@@ -103,12 +103,11 @@ class GoogleVisionManager: NSObject {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            print(JSON(data: data))
+            //print(JSON(data: data))
             //call the parser
 
             let test = JSONParser()
             let parseData = test.analyzeResults(data) // make it constant
-            print (type(of: test.analyzeResults(data)))
             if self.scanType == .text {
                 if test.hasTextData() {
                     self.delegate?.managerDidReceiveValidData(manager: self, data: parseData)

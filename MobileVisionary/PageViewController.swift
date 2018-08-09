@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
-import MessageUI
+
 
 protocol PageVCDelegate {
     func pageVCDidChange(scanType: ScanType)
     func pageVCDidRequestRescan()
+    func requestToSendEmail(data: String)
 }
 
 enum ScanType{
@@ -20,7 +21,7 @@ enum ScanType{
     case text
 }
 
-class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControllerDelegate {
+class PageVC: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!// = UIScrollView(frame: CGRect(x:0, y:0, width:320,height: 300))
     @IBOutlet weak var pageControl : UIPageControl!// = UIPageControl(frame: CGRect(x:50,y: 300, width:200, height:50))
@@ -94,10 +95,12 @@ class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControlle
     
     func extendPage(toHigh: Bool){
         let height: CGFloat = toHigh ? 463 : 43
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-            self.textView.frame.size.height = height
-            self.faceView.frame.size.height = height
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) {
+                self.view.layoutIfNeeded()
+                self.textView.frame.size.height = height
+                self.faceView.frame.size.height = height
+            }
         }
     }
     
@@ -110,22 +113,8 @@ class PageVC: UIViewController, UIScrollViewDelegate, MFMailComposeViewControlle
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        sendEmail()
+        delegate?.requestToSendEmail(data: "wahoowa")
     }
     
-    func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            //mail.setToRecipients(["you@yoursite.com"])
-            mail.setMessageBody(textToShare!, isHTML: true)
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-        }
-    }
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
     
 }
