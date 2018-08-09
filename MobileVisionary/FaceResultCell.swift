@@ -1,7 +1,7 @@
 //
 //  FaceResultCell.swift
 //  MobileVisionary
-//
+///Users/jinnie.park/Documents/MobileVisionary/MobileVisionary/LabelResultCell.swift
 //  Created by Jinnie Park on 8/8/18.
 //  Copyright © 2018 Jinnie Park. All rights reserved.
 //

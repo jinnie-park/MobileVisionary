@@ -13,6 +13,7 @@ class LabelResultCell: UITableViewCell {
     @IBOutlet weak var percentConstraint: NSLayoutConstraint!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var percentage = 0.01
 
@@ -27,6 +28,10 @@ class LabelResultCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func displayLabelName(name: String) {
+        nameLabel.text = name
     }
     
     func displayPercentage(percent: Float){

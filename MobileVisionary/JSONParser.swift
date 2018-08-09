@@ -55,10 +55,12 @@ class JSONParser : NSObject {
                 let emotions = ["joy", "sorrow", "surprise", "anger"]
                 let numPeopleDetected:Int = faceAnnotations.count
                 
-                faceResults["text"] = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
+//                faceResults["text"] = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
+                faceResults["text"] = ""
                 
                 var emotionTotals: [String: Double] = ["sorrow": 0, "joy": 0, "surprise": 0, "anger": 0]
                 var emotionLikelihoods: [String: Double] = ["VERY_LIKELY": 5, "LIKELY": 4, "POSSIBLE": 3, "UNLIKELY": 2, "VERY_UNLIKELY": 1]
+                var reverseEmotionLikelihoods: [Int: String] = [5: "Very likely", 4: "Likely", 3: "Possible", 2: "Unlikely", 1: "Very unlikely"]
                 
                 for index in 0..<numPeopleDetected {
                     let personData:JSON = faceAnnotations[index]
@@ -74,7 +76,8 @@ class JSONParser : NSObject {
                 for (emotion, total) in emotionTotals {
                     let likelihood:Double = total / Double(numPeopleDetected)
                     let rate: Int = Int(likelihood)
-                    faceResults["text"]! += "\(emotion): \(rate) \n"
+                    let rateLikelihood : String = reverseEmotionLikelihoods[rate]!
+                    faceResults["text"]! += "\(emotion): \(rateLikelihood) \n"
                 }
             } else {
                 hasFace = false

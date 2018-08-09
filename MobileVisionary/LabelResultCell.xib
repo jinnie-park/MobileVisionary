@@ -77,6 +77,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="backView" destination="zKq-hg-VM9" id="BkJ-JT-dvl"/>
+                <outlet property="nameLabel" destination="RB4-ry-L41" id="oXw-XF-mdB"/>
                 <outlet property="percentConstraint" destination="53R-p4-tOt" id="c1P-Ii-O0X"/>
                 <outlet property="percentLabel" destination="K0O-ia-WQV" id="Edd-eX-X7H"/>
             </connections>
