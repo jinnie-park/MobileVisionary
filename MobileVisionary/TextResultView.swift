@@ -22,6 +22,7 @@ class TextResultView: UIView {
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
         let labelNib = UINib(nibName: "LabelResultCell", bundle: nil)
         tableView.register(labelNib, forCellReuseIdentifier: "labelresult")
     }
@@ -33,11 +34,22 @@ extension TextResultView: UITableViewDelegate, UITableViewDataSource{
         return 2
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : 30
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1{
+            return tableView.dequeueReusableCell(withIdentifier: "headercell")?.contentView
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
             return 300
         }else{
-            return 30
+            return 40
         }
     }
     

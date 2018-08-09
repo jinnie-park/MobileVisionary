@@ -122,7 +122,7 @@ class ViewController: UIViewController {
                         self.googleVisionManager.uploadImage(image: image, scantype: self.scanType)
                         for face in faces {
                             let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
-                            faceView.backgroundColor = .red
+                            faceView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
                             
                             self.sceneKitView.addSubview(faceView)
                             
@@ -132,11 +132,8 @@ class ViewController: UIViewController {
                 }
             }
         }
-        print ("Arrived line 133")
         DispatchQueue.global().async {
-            print ("line 135")
             try? VNImageRequestHandler(ciImage: image, orientation: self.imageOrientation).perform([detectFaceRequest])
-            print ("line 137")
         }
     }
     
