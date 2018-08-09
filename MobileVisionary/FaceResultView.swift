@@ -47,7 +47,7 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
             cell.setScaleField(scale: "likely")
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "labelresult") as! LabelResultCell
             cell.displayPercentage(percent: 0.9)
             return cell
         }

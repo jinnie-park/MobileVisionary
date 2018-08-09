@@ -13,6 +13,8 @@ class LabelResultCell: UITableViewCell {
     @IBOutlet weak var percentConstraint: NSLayoutConstraint!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var backView: UIView!
+    
+    var percentage = 0.01
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +29,13 @@ class LabelResultCell: UITableViewCell {
     }
     
     func displayPercentage(percent: Float){
-        _ = percentConstraint.changeMultiplier(multiplier: CGFloat(percent))
-        UIView.animate(withDuration: 10) {
-            self.layoutIfNeeded()
+        if let constraint = self.percentConstraint{
+            _ = constraint.changeMultiplier(multiplier: CGFloat(percent))
+            UIView.animate(withDuration: 10) {
+                self.layoutIfNeeded()
+            }
         }
+        
         
         let text = String(Int(percent * 100)) + " % "
         percentLabel.text = text
