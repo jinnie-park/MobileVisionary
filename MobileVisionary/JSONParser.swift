@@ -84,13 +84,9 @@ class JSONParser : NSObject {
             // Get label annotations
             let labelAnnotations: JSON = responses["labelAnnotations"]
             let numLabels: Int = labelAnnotations.count
-            var labels: Array<String> = []
-            var scores: Array<Any> = []
             
             // N.B. label always exists
             if numLabels > 0 {
-                var labelResultsText:String = "Labels found: \n"
-                
                 var dictArray = [Dictionary<String, Any>]()
                 
                 // for loop
@@ -106,15 +102,6 @@ class JSONParser : NSObject {
                     dictArray.append(labelDict)
                 }
                 labelResults["results"] = dictArray
-//                for label in labels {
-//                    // if it's not the last item add a comma
-//                    if labels[labels.count - 1] != label {
-//                        labelResultsText += "\(label), "
-//                    } else {
-//                        labelResultsText += "\(label)"
-//                    }
-//                }
-//                labelResults["text"] = labelResultsText
             } else {
                 labelResults["results"] = [Dictionary<String, Double>]()
             }

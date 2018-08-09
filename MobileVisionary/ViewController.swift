@@ -180,6 +180,7 @@ extension ViewController: GoogleVisionManagerDelegate{
     func managerDidReceiveValidData(manager: GoogleVisionManager, data: ([String : String], [String : Any], [String : String])) {
         changeFrame() // if data successfully called, will automatically expand
         scanTimer?.invalidate()
+        pageVC.data = data
     }
     
     

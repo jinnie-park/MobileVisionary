@@ -88,10 +88,10 @@
                         <viewLayoutGuide key="safeArea" id="Roj-9h-PdB"/>
                     </view>
                     <connections>
-                        <outlet property="faceView" destination="vOW-xY-WDo" id="T7a-au-HmJ"/>
+                        <outlet property="faceView" destination="vOW-xY-WDo" id="Oed-rX-upI"/>
                         <outlet property="pageControl" destination="kRq-hX-iHT" id="mnf-mc-cbL"/>
                         <outlet property="scrollView" destination="e5H-rD-lBM" id="XtA-OR-llU"/>
-                        <outlet property="textView" destination="QyL-Oz-u7m" id="TYh-Hu-UvN"/>
+                        <outlet property="textView" destination="QyL-Oz-u7m" id="QvN-MX-iah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJH-b7-j6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,7 +121,7 @@
                                             <constraint firstAttribute="height" constant="380" id="vdQ-Y4-uH8"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textresult" rowHeight="221" id="m6G-l0-xsp" customClass="TextResultCell" customModule="MobileVisionary" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="textResult" rowHeight="221" id="m6G-l0-xsp" customClass="TextResultCell" customModule="MobileVisionary" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="230" height="221"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6G-l0-xsp" id="W8V-mX-HFW" customClass="textResultCell" customModule="MobileVisionary" customModuleProvider="target">

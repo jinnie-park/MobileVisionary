@@ -103,7 +103,7 @@ class GoogleVisionManager: NSObject {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            print(JSON(data: data))
+//            print(JSON(data: data))
             //call the parser
 
             let test = JSONParser()
