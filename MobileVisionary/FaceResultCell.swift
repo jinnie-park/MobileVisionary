@@ -13,18 +13,21 @@ class FaceResultCell: UITableViewCell {
     @IBOutlet weak var emotionField: UILabel!
      @IBOutlet weak var scaleField: UILabel!
     
+    override func awakeFromNib() {
+        selectionStyle = .none
+    }
+    
     func setEmotionField(emotion: String) {
         var emotionText = emotion
         switch emotion {
         case "anger":
-            emotionText = emotion.uppercased() + "😡"
-            print(emotionText)
+            emotionText = emotion.uppercased() + " 😡"
         case "surprise":
-            emotionText = emotion.uppercased() + "😲"
+            emotionText = emotion.uppercased() + " 😲"
         case "sorrow":
-            emotionText = emotion.uppercased() + "😢"
+            emotionText = emotion.uppercased() + " 😢"
         case "joy":
-            emotionText = emotion.uppercased() + "😀"
+            emotionText = emotion.uppercased() + " 😀"
         default:
             emotionText = emotion.uppercased()
         }

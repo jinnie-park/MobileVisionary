@@ -17,6 +17,10 @@ class TextResultCell: UITableViewCell {
     
     var textToSave = ""
     
+    override func awakeFromNib() {
+        selectionStyle = .none
+    }
+    
     func setTextResult(text: String) {
         self.textToSave = text
         textResult.text = text
