@@ -10,7 +10,7 @@ import UIKit
 
 class TextResultCell: UITableViewCell {
     
-   
+    
     @IBOutlet weak var textResult: UILabel!
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var sendButton: UIButton!
@@ -24,20 +24,6 @@ class TextResultCell: UITableViewCell {
     
     
     
-//
-//    func sendEmail() {
-//        if MFMailComposeViewController.canSendMail() {
-//            let mail = MFMailComposeViewController()
-//            mail.mailComposeDelegate = self
-//            mail.setToRecipients(["you@yoursite.com"])
-//            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
-//            present(mail, animated: true)
-//        } else {
-//            // show failure alert
-//        }
-//    }
-//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        controller.dismiss(animated: true)
-//    }
+    
     
 }

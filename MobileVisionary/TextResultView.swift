@@ -14,6 +14,8 @@ class TextResultView: UIView {
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
+        let labelNib = UINib(nibName: "LabelResultCell", bundle: nil)
+        tableView.register(labelNib, forCellReuseIdentifier: "labelresult")
     }
 
 }
@@ -36,6 +38,10 @@ extension TextResultView: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "textresult", for: indexPath)
+        if indexPath.section == 0{
+            return tableView.dequeueReusableCell(withIdentifier: "textresult", for: indexPath) as! TextResultCell
+        }else{
+            return tableView.dequeueReusableCell(withIdentifier: "labelresult", for: indexPath) as! LabelResultCell
+        }
     }
 }

@@ -156,8 +156,9 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" red="0.71085836150000004" green="1" blue="0.99353980639999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
-                                                    <outlet property="copyButton" destination="pRB-g9-RbC" id="AP1-AB-eI4"/>
-                                                    <outlet property="textResult" destination="H7m-TM-KyA" id="XHl-Ah-bc7"/>
+                                                    <outlet property="copyButton" destination="pRB-g9-RbC" id="6Ef-GI-tWq"/>
+                                                    <outlet property="sendButton" destination="KRU-c0-zwS" id="PNU-J7-rVE"/>
+                                                    <outlet property="textResult" destination="H7m-TM-KyA" id="yTa-1h-eAe"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

@@ -11,7 +11,8 @@
 		5D0BB262211B567F00E0154E /* TextResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB261211B567F00E0154E /* TextResultView.swift */; };
 		5D0BB264211B568F00E0154E /* FaceResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB263211B568F00E0154E /* FaceResultView.swift */; };
 		5D0BB266211B674900E0154E /* LabelResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0BB265211B674900E0154E /* LabelResultCell.xib */; };
-		5D0BB268211B682900E0154E /* LabelResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BB267211B682900E0154E /* LabelResultCell.swift */; };
+		5D7D75B0211C75B100679B8C /* TextResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D75AF211C75B100679B8C /* TextResultCell.swift */; };
+		5D7D75B2211C762D00679B8C /* LabelResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D75B1211C762D00679B8C /* LabelResultCell.swift */; };
 		8412DE5A127B05FC21819F2E /* Pods_MobileVisionaryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92428111B302D259094FC468 /* Pods_MobileVisionaryUITests.framework */; };
 		855C8A58ED064596E1F634BF /* Pods_MobileVisionaryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC761AF7B4C2D0084B349AD /* Pods_MobileVisionaryTests.framework */; };
 		87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A518FE2118CA9E00FD1590 /* AppDelegate.swift */; };
@@ -22,7 +23,6 @@
 		87A519142118CAA000FD1590 /* MobileVisionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A519132118CAA000FD1590 /* MobileVisionaryTests.swift */; };
 		87A5191F2118CAA000FD1590 /* MobileVisionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5191E2118CAA000FD1590 /* MobileVisionaryUITests.swift */; };
 		87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */; };
-		87A51933211B5FA100FD1590 /* TextResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A51932211B5FA100FD1590 /* TextResultCell.swift */; };
 		87A51935211B7AA100FD1590 /* FaceResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A51934211B7AA100FD1590 /* FaceResultCell.swift */; };
 		B9B6F1BC5717211A54619B71 /* Pods_MobileVisionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */; };
 		F389931B211B73DB00E501AE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F389931A211B73DB00E501AE /* JSONParser.swift */; };
@@ -55,7 +55,8 @@
 		5D0BB261211B567F00E0154E /* TextResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResultView.swift; sourceTree = "<group>"; };
 		5D0BB263211B568F00E0154E /* FaceResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceResultView.swift; sourceTree = "<group>"; };
 		5D0BB265211B674900E0154E /* LabelResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelResultCell.xib; sourceTree = "<group>"; };
-		5D0BB267211B682900E0154E /* LabelResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelResultCell.swift; sourceTree = "<group>"; };
+		5D7D75AF211C75B100679B8C /* TextResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResultCell.swift; sourceTree = "<group>"; };
+		5D7D75B1211C762D00679B8C /* LabelResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelResultCell.swift; sourceTree = "<group>"; };
 		70F035971E6215FB5E00ACF3 /* Pods-MobileVisionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileVisionary.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileVisionary/Pods-MobileVisionary.release.xcconfig"; sourceTree = "<group>"; };
 		87A518FB2118CA9D00FD1590 /* MobileVisionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVisionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A518FE2118CA9E00FD1590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		87A5191E2118CAA000FD1590 /* MobileVisionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileVisionaryUITests.swift; sourceTree = "<group>"; };
 		87A519202118CAA000FD1590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleVisionManager.swift; sourceTree = "<group>"; };
-		87A51932211B5FA100FD1590 /* TextResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResultCell.swift; sourceTree = "<group>"; };
 		87A51934211B7AA100FD1590 /* FaceResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceResultCell.swift; sourceTree = "<group>"; };
 		92428111B302D259094FC468 /* Pods_MobileVisionaryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionaryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87F87C1E5B453B075F2BB7C /* Pods_MobileVisionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileVisionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +107,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D7D75AE211C734E00679B8C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		87A518F22118CA9D00FD1590 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +123,7 @@
 				87A518FC2118CA9D00FD1590 /* Products */,
 				9A1A6FDB9CA15FAE0BD05D10 /* Pods */,
 				E96796A0FEC97422443FA9AD /* Frameworks */,
+				5D7D75AE211C734E00679B8C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,8 +152,9 @@
 				87A519072118CAA000FD1590 /* LaunchScreen.storyboard */,
 				87A5190A2118CAA000FD1590 /* Info.plist */,
 				87A5192C2119DF3600FD1590 /* GoogleVisionManager.swift */,
-				87A51932211B5FA100FD1590 /* TextResultCell.swift */,
+				5D7D75B1211C762D00679B8C /* LabelResultCell.swift */,
 				87A51934211B7AA100FD1590 /* FaceResultCell.swift */,
+				5D7D75AF211C75B100679B8C /* TextResultCell.swift */,
 			);
 			path = MobileVisionary;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0BB264211B568F00E0154E /* FaceResultView.swift in Sources */,
+				5D7D75B2211C762D00679B8C /* LabelResultCell.swift in Sources */,
 				5D0BB262211B567F00E0154E /* TextResultView.swift in Sources */,
 				F389931B211B73DB00E501AE /* JSONParser.swift in Sources */,
 				87A5192D2119DF3600FD1590 /* GoogleVisionManager.swift in Sources */,
@@ -410,7 +420,7 @@
 				87A51935211B7AA100FD1590 /* FaceResultCell.swift in Sources */,
 				87A518FF2118CA9E00FD1590 /* AppDelegate.swift in Sources */,
 				5D0BB25E211B22F900E0154E /* PageViewController.swift in Sources */,
-				5D0BB268211B682900E0154E /* LabelResultCell.swift in Sources */,
+				5D7D75B0211C75B100679B8C /* TextResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
