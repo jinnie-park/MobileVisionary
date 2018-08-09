@@ -15,7 +15,9 @@ class TextResultView: UIView {
     var data: ([String : String], [String : Any], [String : String])?{
         didSet{
             //refresh ui to display
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -62,7 +64,6 @@ extension TextResultView: UITableViewDelegate, UITableViewDataSource{
             let label : [Dictionary<String, Any>] = unwrappedData.1["results"] as! [Dictionary<String, Any>]
             numOfRows = label.count
         }
-        print("number of rows \(numOfRows)")
         return numOfRows
         }
     }

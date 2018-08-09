@@ -14,7 +14,9 @@ class FaceResultView: UIView {
     var data: ([String : String], [String : Any], [String : String])?{
         didSet{
             //refresh ui to display
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -59,7 +61,6 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
                 let label : [Dictionary<String, Any>] = unwrappedData.1["results"] as! [Dictionary<String, Any>]
                 numOfRows = label.count
             }
-            print("number of rows \(numOfRows)")
             return numOfRows
         }
     }
@@ -74,12 +75,14 @@ extension FaceResultView: UITableViewDataSource, UITableViewDelegate{
             var emotions = [Substring]()
             if let unwrappedData = self.data {
                 let emotionsData = unwrappedData.0["text"] as! String
+                if emotionsData == "No faces found"{
+                    return cell
+                }
                 emotions = emotionsData.split(separator: "\n")
-//                print("--------------" + emotionsData)
                 var emotion = emotions[indexPath.row].split(separator: ":")
                 cell.setEmotionField(emotion: String(emotion[0]))
                 cell.setScaleField(scale: String(emotion[1]))
-
+                
             }
             return cell
         } else {

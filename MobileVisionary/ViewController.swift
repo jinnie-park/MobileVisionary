@@ -46,13 +46,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.googleVisionManager.delegate = self
+        startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         let config = ARWorldTrackingConfiguration()
         sceneKitView.session.run(config, options: .resetTracking)
-        startTimer()
+        
     }
     
     func startTimer(){
