@@ -119,8 +119,12 @@ class PageVC: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        delegate?.requestToSendEmail(data: "wahoowa")
+        if let data = self.data{
+            if let text = data.2["text"]{
+                delegate?.requestToSendEmail(data: text)
+            }
+        }
+        
     }
-    
     
 }

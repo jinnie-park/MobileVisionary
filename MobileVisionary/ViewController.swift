@@ -160,10 +160,25 @@ class ViewController: UIViewController {
     
     
 }
-
 extension ViewController: PageVCDelegate, MFMailComposeViewControllerDelegate{
     func requestToSendEmail(data: String) {
-        sendEmail()
+        let appianURL = URL(string: "https://vision-image-null.appianci.net/suite/webapi/mv")!
+        var request = URLRequest(url: appianURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Basic YWRtaW4udXNlcjppbmVlZHRvYWRtaW5pc3Rlcg==", forHTTPHeaderField: "Authorization")
+        
+        let jsonRequest = ["mood" : data]
+        let jsonObject = JSON(jsonRequest)
+        guard let data = try? jsonObject.rawData() else { return }
+        request.httpBody = data
+        
+        DispatchQueue.global().async {
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                print(response, data, error)
+            })
+            task.resume()
+        }
     }
     
     func pageVCDidRequestRescan() {
